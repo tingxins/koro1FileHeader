@@ -36,6 +36,17 @@ const customStringTime = 'symbol_custom_string_obkoro10000'
 // 版本字段
 const customStringCopyRight = 'symbol_custom_string_obkoro10001'
 
+// filename
+const customStringFileName = 'symbol_custom_string_obkoro10002'
+// projectname
+const customStringProjectName = 'symbol_custom_string_obkoro10003'
+// author
+const customStringAuthor = 'symbol_custom_string_obkoro10004'
+// date
+const customStringDate = 'symbol_custom_string_obkoro10005'
+
+const customStringBrief = 'symbol_custom_string_obkoro10006'
+
 //  不同语言的注释符号
 const annotationSymbol = {
   javascript: {
@@ -84,6 +95,11 @@ module.exports = {
   customStringConst,
   customStringTime,
   customStringCopyRight,
+  customStringFileName,
+  customStringProjectName,
+  customStringAuthor,
+  customStringDate,
+  customStringBrief,
   handleNodeString,
   specialString,
   errPath,

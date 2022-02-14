@@ -54,8 +54,16 @@ const changePrototypeNameFn = (data, config) => {
       // 更改用户自定义输出字段 后期需要切割它
       if (item === `${global.specialString}1_copyright`) {
         objData[global.customStringCopyRight] = data[item]
-      } else if (item === `${global.specialString}1_date`) {
-        objData[global.customStringTime] = data[item]
+      } else if (item === `${global.specialString}2_date`) {
+        objData[global.customStringDate] = data[item]
+      } else if (item === `${global.specialString}1_file_name`) {
+        objData[global.customStringFileName] = data[item]
+      } else if (item === `${global.specialString}1_project_name`) {
+        objData[global.customStringProjectName] = data[item]
+      } else if (item === `${global.specialString}1_author`) {
+        objData[global.customStringAuthor] = data[item]
+      }  else if (item === `${global.specialString}1_brief`) {
+        objData[global.customStringBrief] = data[item]
       } else {
         objData[`symbol_${item}`] = data[item]
       }

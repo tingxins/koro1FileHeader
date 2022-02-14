@@ -1,9 +1,9 @@
 {
-  "name": "korofileheader",
-  "displayName": "koroFileHeader",
+  "name": "txkorofileheader",
+  "displayName": "txkoroFileHeader",
   "description": "用于生成文件头部注释和函数注释的插件，支持所有主流语言,功能强大，灵活方便，文档齐全，食用简单！",
-  "version": "4.8.19",
-  "publisher": "OBKoro1",
+  "version": "4.8.20",
+  "publisher": "tingxins",
   "scripts": {
     "build": "vsce package",
     "postinstall": "node ./node_modules/vscode/bin/install",

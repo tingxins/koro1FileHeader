@@ -13,6 +13,10 @@ const fs = require('fs')
 const filePathFile = require('./filePath')
 const logicUtil = require('../utile/logicUtil')
 const global = require('../utile/CONST')
+const os = require('os')
+const exec = require('child_process').execSync
+const path = require('path')
+// const dateFormat = require('dateformat');
 
 /**
  * @description: 头部注释根据用户设置返回模板数据对象
@@ -128,11 +132,41 @@ function noEditorValue (data, config) {
 function changeTplValue (data) {
   // 版权自定义
   if (data[global.customStringCopyRight]) {
-    const copyright = data[global.customStringCopyRight]
-    data[global.customStringCopyRight] = copyright.replace(
-      // eslint-disable-next-line no-template-curly-in-string
+    const nowYear = data[global.customStringCopyRight]
+    
+    data[global.customStringCopyRight] = nowYear.replace(
       '${now_year}',
-      new Date().format('YYYY')
+      new Date().format('yyyy')
+    )
+
+    const createDate = data[global.customStringDate]
+    data[global.customStringDate] = createDate.replace(
+      '${date}',
+      new Date().format('yyyy/MM/DD')
+    )
+
+    const brief = data[global.customStringBrief]
+    data[global.customStringBrief] = brief.replace(
+      '${brief}',
+      ""
+    )
+
+    const author = data[global.customStringAuthor]
+    data[global.customStringAuthor] = author.replace(
+      '${author}',
+      exec('git config --get user.name').toString().trim()
+    )
+
+    const fileName = data[global.customStringFileName]
+    data[global.customStringFileName] = fileName.replace(
+      '${file_name}',
+      path.basename(__filename)
+    )
+
+    const projectName = data[global.customStringProjectName]
+    data[global.customStringProjectName] = projectName.replace(
+      '${project_name}',
+      filePathFile.createFilePath(data.FilePath).split("/")[1]
     )
   }
   return data
