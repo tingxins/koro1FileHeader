@@ -158,11 +158,13 @@ function changeTplValue (data) {
     )
 
     const fileName = data[global.customStringFileName]
+    const fileComponents = filePathFile.createFilePath(data.FilePath).split("/")
+    const name = fileComponents[fileComponents.length - 1]
     data[global.customStringFileName] = fileName.replace(
       '${file_name}',
-      path.basename(__filename)
+      name
     )
-
+    // path.basename(__filename)
     const projectName = data[global.customStringProjectName]
     data[global.customStringProjectName] = projectName.replace(
       '${project_name}',
